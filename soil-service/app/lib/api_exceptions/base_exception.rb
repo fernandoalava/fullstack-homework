@@ -5,10 +5,9 @@ module ApiExceptions
 
     ERROR_DESCRIPTION = Proc.new {|status, message| {status: status, message: message}}
     ERROR_CODE_MAP = {
-      "HumusBalanceError::MissingFieldIdError" =>
-        ERROR_DESCRIPTION.call(400, "item_id is required"),
-        "HumusBalanceError::FieldDoesNotExistError" =>
-        ERROR_DESCRIPTION.call(404, "field not found")
+      "HumusBalanceError::MissingFieldIdError" => ERROR_DESCRIPTION.call(400, "item_id is required"),
+      "HumusBalanceError::FieldDoesNotExistError" => ERROR_DESCRIPTION.call(404, "field not found"),
+      "HumusBalanceError::CropDoesNotExistError" => ERROR_DESCRIPTION.call(404, "crop not found")
     }
 
     def initialize
